@@ -1,4 +1,3 @@
-{*form*}
 <div id="callme_form" class="callme_form form_wr">
     <div class="callme_form_close_wr">
         <span id="callme_form_close" class="callme_form_close">X</span>
@@ -154,9 +153,10 @@
 
             <div class="control-group callme_recaptcha_wr callme_nobg">
                 <label for="">Код проверки *</label>
-                [[+formit.recaptcha_html]]
-                [[!+fi.error.recaptcha]]
-                <span class="error_recaptcha">[[!+fi.error.recaptcha]]</span>
+                <div
+                    id="captcha-container"
+                    class="smart-captcha"
+                ></div>
             </div>
 
 
@@ -165,7 +165,7 @@
             <div class="control-group callme_but_wr callme_nobg">
                 <div class="controls">
                     <div class="button_wr2">
-                        <button id="callme_form2" name="callme_form2" class="btn btn-primary btn-lg">Отправить заявку</button>
+                        <button id="callme_form2" name="callme_form2" class="btn btn-primary btn-lg" disabled="1">Отправить заявку</button>
                     </div>
                 </div>
             </div>

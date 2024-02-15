@@ -46,7 +46,7 @@
     [[!AjaxForm?
     &snippet=`FormIt`
     &form=`form`
-    &hooks=`recaptcha,spam,email`
+    &hooks=`spam,email`
     &spamEmailFields=`callme_email`
     &validate=`nospam:blank,callme_email:required:email,callme_phone:required,callme_services:required,callme_intent:required,callme_agreement:required`
     &successMessage=`Ваша заявка отправлена! Наш менеджер позвонит Вам в течение рабочего дня`
@@ -57,3 +57,47 @@
     ]]
 </div>
 <div id="overlay"></div>
+
+<script src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=smartCaptchaInit" defer></script>
+<script>
+  function callback(token) {
+    if (token) {
+      document
+          .getElementById('callme_form2')
+          .removeAttribute('disabled');
+    } else {
+      document
+          .getElementById('callme_form2')
+          .setAttribute('disabled', '1');
+    }
+  }
+
+  function smartCaptchaInit() {
+    if (!window.smartCaptcha) {
+      return;
+    }
+
+    window.smartCaptcha.render('captcha-container', {
+      sitekey: 'ysc1_Q52dKLq0fCUpmA5r4ZqYiqZPS9diiDuMRbAdARSkf62780ac',
+      hl: 'ru',
+      callback: callback,
+    });
+  }
+
+  function smartCaptchaReset() {
+    if (!window.smartCaptcha) {
+      return;
+    }
+
+    window.smartCaptcha.reset();
+  }
+
+  function smartCaptchaGetResponse() {
+    if (!window.smartCaptcha) {
+      return;
+    }
+
+    var resp = window.smartCaptcha.getResponse();
+    alert(resp);
+  }
+</script>
