@@ -52,7 +52,7 @@
     &successMessage=`Ваша заявка отправлена! Наш менеджер позвонит Вам в течение рабочего дня`
     &emailTpl=`sentEmailCallmeTpl`
     &emailSubject=`Сообщение с сайта [[++site_url]]`
-    &emailFrom=`noreply@artelx.ru`
+    &emailFrom=`tkg@tkg-rf.ru`
     &emailTo=`tkg@tkg-rf.ru`
     ]]
 </div>
